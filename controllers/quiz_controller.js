@@ -11,3 +11,8 @@ exports.answer = function(req, res){
 		res.render('quizes/answer', {respuesta: 'Incorrecto'})
 	}
 };
+
+// GET /authors
+exports.authors = function(req, res){
+	res.render('authors', {title: 'Quiz'});
+};
