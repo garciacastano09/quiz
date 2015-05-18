@@ -57,17 +57,22 @@ exports.answer = function(req, res) {
 exports.create = function(req, res) {
     var quiz = models.Quiz.build( req.body.quiz );
 
-    quiz.validate().then(function(err){
-        if(err) {
-            res.render('quizes/new' ,{quiz: quiz, errors: err.errors});
-        } else {
+
+    //quiz.validate().then(function(err){
+    //    if(err) {
+    //        res.render('quizes/new' ,{quiz: quiz, errors: err.errors});
+    //    } else {
           quiz //save: guarda en DB los campos pregunta y respuesta de quiz
           .save({fields: ["pregunta", "respuesta"]})
-          .then(function(){ res.redirect('/quizes');}     
+          .then(function(){ res.redirect('/quizes');}
+            
+          //     
                 // res.redirect: Redirección HTTP (URL relativo) lista de preguntas
-                );
+           //     );
+        //};
+    )
+    console.log("se ha creado la pregunta "+quiz.pregunta+" "+quiz.respuesta);
         };
-    })};
 
 // GET /quizes/:id/edit
 exports.edit = function(req, res) {
