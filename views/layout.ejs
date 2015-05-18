@@ -1,49 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="utf-8"><title> Preguntas </title>
-	<link rel="stylesheet" type="text/css" href="../stylesheets/style.css" />
-	<link rel="stylesheet" type="text/css" media="only screen and (min-width: 530px) and (min-device-width: 481px)"	href="../stylesheets/wide.css">
-	<link rel="stylesheet" type="text/css" media= "only screen and (max-width: 480px)"
-		  href="../stylesheets/smartphone.css">
-</head>
+  <meta charset="utf-8"><title> Preguntas </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' 
+        type='text/css'
+        media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+        href='/stylesheets/wide.css' />
+  <link rel='stylesheet'
+        type='text/css'
+        media='only screen and (max-width: 480px)' 
+        href='/stylesheets/smartphone.css' />
+
+</head> 
 
 <body>
-	<div id="page-wrap">
-		<header class="main" id="h1">
-            
-            <% if(!session.user){ %>
-            <span class="right"><a href="/login">Login</a></span>
-            <% }else{ %>
-            <span class="right"><% session.user.username %><a href="/logout">Logout</a></span>
-            <% } %>
-            
-			<h2>Quiz: el juego de las preguntas</h2>
-		</header>
+<div id="page-wrap">
+  <header class="main" id="h1">
+    <h2>Quiz<span>: el juego de las preguntas</span></h2>
+  </header>
 
-		<nav class="main" id="n1" role="navigation">
-			<span><a href="/">Inicio</a></span>
-			<span><a href="/quizes">Preguntas</a></span>
-			<span><a href="/authors">Autores</a></span>
-		</nav>
+  <nav class="main" id="n1" role="navigation">
+    <span><a href="/">Inicio</a></span>
+    <span><a href="/quizes">Preguntas</a></span>
+  </nav>
 
-		<section class="main" id="s1">
-		<% if (errors.length) { %>
-			<span id='ErrorMsgs'>
-				Corregir errores:<br/>
-				<% for (var i in errors) { %>
-					<span> <%= errors[i].message %> </span><br/>
-				<% } %>
-			</span>
-		<% } %>
-		<div><%- body%></div>
-		
-		</section>
+  <section class="main" id="s1">
+    <% if (errors.length) { %>
+      <span id='ErrorMsgs'>
+        Corregir errores:<br/>
+        <% for (var i in errors) { %>
+           <span> <%= errors[i].message %> </span><br/>
+        <% } %>
+      </span>
+    <% } %>
 
-		<footer class="main" id="f1">
-			<a href="http://es.wikipedia.org/wiki/Quiz"> ¿Que es un Quiz? </a>
-		</footer>
+    <div><%- body %></div>
+  </section>
 
-	</div>
-</body>
+  <footer class="main" id="f1">
+    <a href="http://es.wikipedia.org/wiki/Quiz">
+      ¿Que es un Quiz?</a>
+  </footer>
+</div>
+</body> 
 </html>
