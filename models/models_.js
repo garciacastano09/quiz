@@ -1,3 +1,6 @@
+//JORGE GARCÍA CASTAÑO Y MARTA ALMENDRAL HERNANDEZ
+//GRUPO 35.2
+
 var path = require('path');
 
 var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);

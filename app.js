@@ -1,3 +1,6 @@
+//JORGE GARCÍA CASTAÑO Y MARTA ALMENDRAL HERNANDEZ
+//GRUPO 35.2
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -33,15 +36,14 @@ app.use(function(req, res, next) {
 
  // guardar path en session.redir para despues de login
  if (!req.path.match(/\/login|\/logout/)) {
- req.session.redir = req.path;
+    req.session.redir = req.path;
+     console.log(req.session.redir +" = "+ req.path);
  }
 
  // Hacer visible req.session en las vistas
  res.locals.session = req.session;
  next();
 });
-
-
 
 app.use('/', routes);
 

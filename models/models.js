@@ -1,3 +1,6 @@
+//JORGE GARCÍA CASTAÑO Y MARTA ALMENDRAL HERNANDEZ
+//GRUPO 35.2
+
 var path = require('path');
 
 // Postgres DATABASE_URL = postgres://user:passwd@host:port/database

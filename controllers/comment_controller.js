@@ -1,3 +1,6 @@
+//JORGE GARCÍA CASTAÑO Y MARTA ALMENDRAL HERNANDEZ
+//GRUPO 35.2
+
 var models = require('../models/models.js');
 
 // GET /quizes/:quizId/comments/new
