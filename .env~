@@ -1,4 +1,2 @@
 DATABASE_URL=sqlite://:@:/
 DATABASE_STORAGE=quiz.sqlite
-PASSWORD_ENCRYPTION_KEY=asdfghjklzxcvbnmqwertyuiop 
-
