@@ -41,6 +41,10 @@ var Comment = sequelize.import(comment_path);
 var user_path = path.join(__dirname,'user');
 var User = sequelize.import(user_path);
 
+// Importar definicion de la tabla Favourites
+var favourite_path = path.join(__dirname,'favourite');
+var Favourite = sequelize.import(favourite_path);
+
 Comment.belongsTo(Quiz);
 Quiz.hasMany(Comment);
 
@@ -48,9 +52,14 @@ Quiz.hasMany(Comment);
 Quiz.belongsTo(User);
 User.hasMany(Quiz);
 
+//definicion de favourites
+User.belongsToMany(Quiz, {through: 'Favourite'});
+Quiz.belongsToMany(User, {through: 'Favourite'});
+
 exports.Quiz = Quiz; // exportar tabla Quiz
 exports.Comment = Comment; // exportar tabla Comment
 exports.User = User; // exportar tabla Comment
+exports.Favourite = Favourite; // exportar tabla Favourites
 
 // sequelize.sync() inicializa tabla de preguntas en DB
  sequelize.sync({force:true}).then(function() {
@@ -67,7 +76,13 @@ exports.User = User; // exportar tabla Comment
         Quiz.count().then(function (count){
           if(count === 0) {   // la tabla se inicializa solo si está vacía
             Quiz.bulkCreate( 
-              [ {pregunta: 'Capital de Italia',   respuesta: 'Roma', UserId: 2}, // estos quizes pertenecen al usuario pepe (2)
+              [ {pregunta: 'Capital de Italia',   respuesta: 'Roma', UserId: 2},       // estos quizes pertenecen al usuario pepe (2)
+               {pregunta: 'Capital de España',   respuesta: 'Madrid', UserId: 2},
+               {pregunta: 'Capital de Francia',   respuesta: 'París', UserId: 2},
+               {pregunta: 'Capital de Alemania',   respuesta: 'Berlín', UserId: 2},
+               {pregunta: 'Capital de Australia',   respuesta: 'Sydney', UserId: 2},
+               {pregunta: 'Capital de Inglaterra',   respuesta: 'Londres', UserId: 2},
+               {pregunta: 'Capital de Bélgica',   respuesta: 'Bruselas', UserId: 2},
                 {pregunta: 'Capital de Portugal', respuesta: 'Lisboa', UserId: 2}
               ]
             ).then(function(){console.log('Base de datos (tabla quiz) inicializada')});

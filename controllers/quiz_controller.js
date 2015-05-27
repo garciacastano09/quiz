@@ -31,8 +31,8 @@ exports.index = function(req, res) {
           //console.log("Despues: "+req.query.search);
           models.Quiz.findAll({where: [ "pregunta like ?", req.query.search], order: ["pregunta"]}).then(
           function(quizes){
-            res.render('quizes/index', { quizes: quizes,  errors: []
-          });
+            res.render('quizes/index', { quizes: quizes,  errors: [] });
+            console.log("\n"+quizes+"\n");
         });
       }else{
         res.render('quizes/index', {quizes: quizes, errors: []});
@@ -76,9 +76,7 @@ exports.create = function(req, res) {
   
 
   quiz
-  .validate()
-  .then(
-    function(err){
+  .validate().then(function(err){
       if (err) {
         res.render('quizes/new', {quiz: quiz, errors: err.errors});
       } else {
@@ -102,10 +100,7 @@ exports.update = function(req, res) {
   req.quiz.pregunta  = req.body.quiz.pregunta;
   req.quiz.respuesta = req.body.quiz.respuesta;
 
-  req.quiz
-  .validate()
-  .then(
-    function(err){
+  req.quiz.validate().then(function(err){
       if (err) {
         res.render('quizes/edit', {quiz: req.quiz, errors: err.errors});
       } else {

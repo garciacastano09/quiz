@@ -7,6 +7,10 @@ GRUPO 35.2-->
   <input type="submit" value="Enviar">
 </form>
 
+<form method="post" action="/user/<%=session.user.id%>/favourites/<%= quiz.id %>?_method=put">
+    <input type="submit" value="Fav"/>
+</form>
+
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
 
 <p><strong>Comentarios:</strong></p>

@@ -39,7 +39,7 @@ exports.create = function(req, res) {
      // Crear req.session.user y guardar campos id, username y la duracion del login
      // La sesión se define por la existencia de: req.session.user
      req.session.user = {id:user.id, username:user.username, time:time};
-         console.log("usuario creado time = "+req.session.user.time);
+         //console.log("usuario creado time = "+req.session.user.time);
      res.redirect(req.session.redir.toString());// redirección a path anterior a login
      });
 };
@@ -56,9 +56,9 @@ exports.autologout = function(req, res, next){
         var timeNow = Date.now(); //hora que es
         var timeBefore = req.session.user.time; //hora de la ultima transaccion
         var time = timeNow - timeBefore; //tiempo logueado desde la ultima transaccion
-        console.log("time now = "+timeNow);
+        /*console.log("time now = "+timeNow);
         console.log("time before = "+timeBefore);
-        console.log("time = "+time);
+        console.log("time = "+time);*/
         
         if(time < 120000){  
             req.session.user.time = timeNow;
@@ -66,7 +66,7 @@ exports.autologout = function(req, res, next){
 
         } else {
              res.redirect('/logout',{});
-             console.log("Sesión expirada.")
+             //console.log("Sesión expirada.")
           }
     }else{
 	   next();

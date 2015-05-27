@@ -31,7 +31,11 @@ GRUPO 35.2-->
 
   <nav class="main" id="n1" role="navigation">
     <span><a href="/">Inicio</a></span>
-    <span><a href="/quizes">Preguntas</a></span>
+    <span><a href="/quizes">Preguntas</a></span>      
+    <%if(session.user){%>
+       
+      <span><a href="/user/<%=session.user.id%>/favourites">Favoritos</a></span>
+    <%}%> 
     <span><a href="/quizes/statistics">Estadísticas</a></span>
   </nav>
 
