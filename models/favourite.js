@@ -3,5 +3,5 @@
 
 // Definicion del modelo de Favourites
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('favourites', {});
+    return sequelize.define('Favourites', {});
 }
