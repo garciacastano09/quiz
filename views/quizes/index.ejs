@@ -21,6 +21,13 @@ GRUPO 35.2-->
                 Fav
               </button>
             </form>
+        </td>
+        <td>
+            <form method="post" action="/user/<%= session.user.id %>/favourites/<%= quizes[i].id %>?_method=delete">
+              <button type="submit">
+                UnFav
+              </button>
+            </form>
             
         </td>
         <%}%>
